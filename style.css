@@ -215,10 +215,18 @@ p {
     margin-bottom: 48px;
 }
 
+/* Upgraded from column flex to a dynamic responsive grid architecture */
 .project-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     gap: 24px;
+}
+
+/* Desktop multi-column grid layout adjustment for 4 items */
+@media (min-width: 768px) {
+    .project-container {
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    }
 }
 
 .project-card {
@@ -226,6 +234,9 @@ p {
     border: 1px solid var(--border);
     padding: 24px;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .project-card h3 {
@@ -236,6 +247,7 @@ p {
 .project-description {
     font-size: 15px;
     margin-bottom: 16px;
+    flex-grow: 1; /* Ensures text blocks stretch evenly */
 }
 
 .project-tech {
@@ -247,6 +259,7 @@ p {
 .project-links {
     display: flex;
     gap: 12px;
+    margin-top: auto; /* Pins action buttons neatly to the bottom of the card */
 }
 
 /* --- CURRENT FUTURE REQUISITION FOCUS --- */
