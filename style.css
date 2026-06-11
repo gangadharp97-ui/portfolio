@@ -330,47 +330,78 @@ section h2::after {
 }
 
 /* ==========================================================================
-   CONTACT CARD & FOOTER LAYER
+   CONTACT CARD & FOOTER LAYER (FIXED CENTERING GRID)
    ========================================================================== */
 .contact {
     background: var(--card-bg);
     border-bottom: none;
+    text-align: center; /* Forces block headings to center alignment */
+    padding: 80px 24px;
+    width: 100%;
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .contact-prompt {
     font-size: 16px;
     color: var(--text-muted);
-    margin-bottom: 24px;
+    max-width: 600px;
+    margin: 0 auto 32px auto; /* Perfect structural centering block spacing */
     text-align: center;
+    line-height: 1.6;
 }
 
 .contact-list {
     list-style: none;
     display: flex;
-    justify-content: center;
-    gap: 32px;
-    flex-wrap: wrap;
+    justify-content: center; /* Aligns items perfectly across the horizontal center line */
+    align-items: center;    /* Keeps text vertical blocks level */
+    gap: 40px;              /* Clean separation gaps between individual targets */
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+    flex-wrap: wrap;        /* Safely snaps to vertical stack layout configuration on tiny mobile viewports */
+}
+
+.contact-list li {
+    margin: 0;             /* Removed heavy vertical margins disrupting flex box rules */
 }
 
 .contact-list a {
     text-decoration: none;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--text-main);
-    transition: color 0.2s ease;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color); /* Premium bordered design accents */
+    background: var(--primary-bg);
+    transition: all 0.2s ease;
 }
 
 .contact-list a:hover {
     color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    background: rgba(37, 99, 235, 0.04);
+    text-decoration: none;
+    transform: translateY(-2px);
 }
 
-footer {
-    text-align: center;
-    padding: 40px 24px;
-    background: var(--dark-slate);
-    color: #94a3b8;
-    font-size: 14px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+/* Mobile responsive adjustments specifically handling contact boundaries */
+@media (max-width: 768px) {
+    .contact-list {
+        flex-direction: column; /* Snaps cleanly to stack when browser screen runs thin */
+        gap: 16px;
+        width: 100%;
+    }
+    .contact-list a {
+        display: block;
+        width: 240px; /* Uniform width buttons for neat look on mobile screen */
+        margin: 0 auto;
+    }
 }
 
 /* ==========================================================================
