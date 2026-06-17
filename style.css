@@ -1,4 +1,6 @@
-/* --- GLOBAL DESIGN CONSTANTS --- */
+/* ==========================================================================
+   --- GLOBAL DESIGN CONSTANTS ---
+   ========================================================================== */
 :root {
     --bg-main: #0f172a;       /* Deep slate dark background */
     --bg-card: #1e293b;       /* Crisp contrasting card layer */
@@ -54,7 +56,7 @@ p {
 }
 
 .Profile-pic {
-    width: 180px;             
+    width: 180px;              
     height: 180px;            
     border-radius: 50%;
     object-fit: cover;
@@ -222,7 +224,7 @@ p {
     gap: 24px;
 }
 
-/* Desktop multi-column grid layout adjustment for 4 items */
+/* Desktop multi-column grid layout adjustment for portfolio project matrix */
 @media (min-width: 768px) {
     .project-container {
         grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
@@ -343,12 +345,17 @@ footer p {
     will-change: transform, box-shadow;
 }
 
-.card:hover, 
-.project-card:hover, 
+.card:hover,
 .learning-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
     border-color: var(--accent);
+}
+
+/* Separated project-card layout configuration to avoid conflicts with script.js transitions */
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
 }
 
 .timeline-item:hover {

@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 3. PROJECT CARD HOVER ELEVATION GLOW
-    // Gently shifts shadow opacity as a fallback for older browser layout modules
+    // Gently shifts shadow opacity and handles hover highlights robustly across all platforms
     const projectCards = document.querySelectorAll(".project-card");
     
     projectCards.forEach(card => {
@@ -36,7 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         
         card.addEventListener("mouseleave", () => {
-            card.style.borderColor = "var(--border-color)";
+            // Clearing the inline property cleanly forces the engine to revert back to native CSS styles
+            card.style.borderColor = "";
         });
     });
 
